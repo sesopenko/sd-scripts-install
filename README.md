@@ -68,18 +68,12 @@ pyenv virtualenv 3.10.13 sd-scripts
 pyenv activate sd-scripts
 ```
 
-## Install torch for cuda
+## Install dependencies
+
+This takes 5-10 minutes on my 1GB/s internet connection.
 
 ```bash
-pip install torch==2.1.0+cu121 torchvision==0.16+cu121 --index-url https://download.pytorch.org/whl/cu121
-```
-
-## install xformers & triton
-
-```bash
-pip install xformers==0.0.23
-# I've seen it pop up that triton was required
-pip install triton
+./install-pip-packages.sh
 ```
 
 ## verify gpu support
@@ -103,21 +97,26 @@ True
 NVIDIA GeForce RTX 3080
 ```
 
-## clone & install sd-scripts
+## clone & install sd-scripts~~~~
 
 Before doing the following, `cd` to where you store all your git repos.
+
+Watch the console for any errors. If any occur, sort those out before continuing.
 
 ```bash
 git clone https://github.com/kohya-ss/sd-scripts.git
 cd sd-scripts
 
-python -m venv venv
-.\venv\Scripts\activate
+pyenv activate sd-scripts
 
-pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
 pip install --upgrade -r requirements.txt
-pip install xformers==0.0.20
 
 accelerate config
 
 ```
+
+## Random improvements
+
+### pycharm file system performance
+
+If you get a warning from Pycharm that external file changes sync may be slow, fix it with [inotify settings](https://stackoverflow.com/questions/67927480/how-to-fix-these-warnings-external-file-changes-sync-may-be-slow-and-the-curr).
