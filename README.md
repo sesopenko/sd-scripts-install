@@ -83,7 +83,10 @@ pyenv and that torch can use cuda. If either fail, it won't continue.
 
 Before doing the following, `cd` to where you store all your git repos.
 
-Watch the console for any errors. If any occur, sort those out before continuing. This took 10-15 minutes for me.
+Watch the console for any errors. If any occur, sort those out before continuing
+
+This took 10-15 minutes for me because it was pulling multiple versions of torchvision to figure out
+which was compatible with other requirements. It took foreeeeeever.
 
 ```bash
 git clone https://github.com/kohya-ss/sd-scripts.git
