@@ -3,36 +3,6 @@
 Scripts for installation of [kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts) on linux. I'm trying to get it working with Cuda 1.21
 so that it's more stable in the future.
 
-## keeping git repos tidy
-
-Over time, a development environment will have lots of git repos.  Putting all of the repos flat in a single directory
-eventually leads to conflics in project names and difficulty understanding what projects are for what.
-Plus, when pulling repos from github, gitlab, etc, it can get even more confusing.
-
-This is the structure I use:
-
-* `~/src`: main directory where all repos are located
-  *  `<service_name>`: ie `github.com`. This keeps github & gitlab repos tidy
-      * `<user>`: ie: `sesopenko`, `kohya-ss`, `comfyanonymous`: this avoids conflicts in repo names
-        * `<repo_name>`: ie: `sd-scripts`, `ComfyUI`, `sd-scripts-install`
-
-ie:
-
-```
-~/src
-  github.com/
-    sesopenko/
-      sd-scripts-install
-    kohya-ss/
-      sd-scripts
-  gitlab.com/
-    Inkscape/
-      inkscape
-```
-
-This also helps keep day-job corporate projects separated from personal projects when night hacking, such as
-keeping the corporate bitbucket separate from github.com projects.
-
 ## Pre-reqs
 
 Tested with the following:
@@ -136,3 +106,33 @@ Do the following:
 * Using your key to sign your kernel
 
 Then install your [nvidia drivers](https://wallabag.seanesopenko.ca/share/6591d0ef55af53.25633884).
+
+### keeping git repos tidy
+
+Over time, a development environment will have lots of git repos.  Putting all of the repos flat in a single directory
+eventually leads to conflics in project names and difficulty understanding what projects are for what.
+Plus, when pulling repos from github, gitlab, etc, it can get even more confusing.
+
+This is the structure I use:
+
+* `~/src`: main directory where all repos are located
+  *  `<service_name>`: ie `github.com`. This keeps github & gitlab repos tidy
+      * `<user>`: ie: `sesopenko`, `kohya-ss`, `comfyanonymous`: this avoids conflicts in repo names
+        * `<repo_name>`: ie: `sd-scripts`, `ComfyUI`, `sd-scripts-install`
+
+ie:
+
+```
+~/src
+  github.com/
+    sesopenko/
+      sd-scripts-install
+    kohya-ss/
+      sd-scripts
+  gitlab.com/
+    Inkscape/
+      inkscape
+```
+
+This also helps keep day-job corporate projects separated from personal projects when night hacking, such as
+keeping the corporate bitbucket separate from github.com projects.
