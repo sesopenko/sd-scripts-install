@@ -9,8 +9,9 @@ Tested with the following:
 
 * **debian 12** (I like debian for it's stability)
 * [pyenv](https://bgasparotto.com/install-pyenv-ubuntu-debian)
-* create a pyenv with python 3.10.13
-* activate pyenv
+* `pyenv install 3.10.13`
+* `pyenv virtualenv 3.10.13 sd-scripts`
+* `pyenv activate sd-scripts`: you need to do this every time you run a new shell (ie: close terminal).
 * [nvidia drivers](https://wallabag.seanesopenko.ca/share/6591d0ef55af53.25633884)
 * [cuda toolkit 12.1](https://wallabag.seanesopenko.ca/share/6591d10e0d51f3.02615170)
   * you'll have to add some stuff to your bashrc so that cuda works, too. lots of guides out there.
