@@ -131,3 +131,5 @@ Do the following:
 * Add your key to dkms
 * Set linux kernel info variables in your `.bashrc`
 * Using your key to sign your kernel
+
+Then install your [nvidia drivers](https://wallabag.seanesopenko.ca/share/6591d0ef55af53.25633884).
