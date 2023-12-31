@@ -103,7 +103,7 @@ accelerate config
 
 If you get a warning from Pycharm that external file changes sync may be slow, fix it with [inotify settings](https://stackoverflow.com/questions/67927480/how-to-fix-these-warnings-external-file-changes-sync-may-be-slow-and-the-curr).
 
-## Dualbooting Debian 12 and Windows 11
+### Dualbooting Debian 12 and Windows 11
 
 Windows 11 needs HD encryption and likes having secureboot enabled. Debian 12 supports this.  Do this before installing
 your nvidia drivers.
