@@ -8,7 +8,7 @@ so that it's more stable in the future.
 Tested with the following:
 
 * **debian 12** (I like debian for it's stability)
-* pyenv
+* [pyenv](https://bgasparotto.com/install-pyenv-ubuntu-debian)
 * create a pyenv with python 3.10.13
 * activate pyenv
 * [nvidia drivers](https://wallabag.seanesopenko.ca/share/6591d0ef55af53.25633884)
@@ -17,16 +17,6 @@ Tested with the following:
 * [cudnn libs installed](https://wallabag.seanesopenko.ca/share/6591b78221a8b4.37024356) for cuda 12.1
   * Put the includes and libs in your cuda folder
 
-I had to install [a bunch of developer libraries for python](https://gist.github.com/drconopoima/e7cdbbbf6c7ea51fc1e26b5576c5e6ef) **before** I could use pyenv properly:
-
-```bash
-# If you tried installing python with pyenv BEFORE doing this, delete your previous pyenv python install with
-# pyenv uninstall <version_you_installed>, then reinstall again.
-
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev git
-```
 
 ## create  & activatepyenv
 
