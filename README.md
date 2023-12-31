@@ -3,6 +3,36 @@
 Scripts for installation of [kohya-ss/sd-scripts](https://github.com/kohya-ss/sd-scripts) on linux. I'm trying to get it working with Cuda 1.21
 so that it's more stable in the future.
 
+## keeping git repos tidy
+
+Over time, a development environment will have lots of git repos.  Putting all of the repos flat in a single directory
+eventually leads to conflics in project names and difficulty understanding what projects are for what.
+Plus, when pulling repos from github, gitlab, etc, it can get even more confusing.
+
+This is the structure I use:
+
+* `~/src`: main directory where all repos are located
+  *  `<service_name>`: ie `github.com`. This keeps github & gitlab repos tidy
+      * `<user>`: ie: `sesopenko`, `kohya-ss`, `comfyanonymous`: this avoids conflicts in repo names
+        * `<repo_name>`: ie: `sd-scripts`, `ComfyUI`, `sd-scripts-install`
+
+ie:
+
+```
+~/src
+  github.com/
+    sesopenko/
+      sd-scripts-install
+    kohya-ss/
+      sd-scripts
+  gitlab.com/
+    Inkscape/
+      inkscape
+```
+
+This also helps keep day-job corporate projects separated from personal projects when night hacking, such as
+keeping the corporate bitbucket separate from github.com projects.
+
 ## Pre-reqs
 
 Tested with the following:
@@ -44,3 +74,50 @@ pyenv activate sd-scripts
 pip install torch==2.1.0+cu121 torchvision==0.16+cu121 --index-url https://download.pytorch.org/whl/cu121
 ```
 
+## install xformers & triton
+
+```bash
+pip install xformers==0.0.23
+# I've seen it pop up that triton was required
+pip install triton
+```
+
+## verify gpu support
+
+```python
+import torch
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name(0))  # 0 corresponds to the first GPU
+```
+
+example output on bash:
+
+```
+(sd-scripts) sean@sean-workstation:~/src/github.com/kohya-ss/sd-scripts$ python
+Python 3.10.13 (main, Dec 30 2023, 16:45:17) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
+>>> print(torch.cuda.is_available())
+True
+>>> print(torch.cuda.get_device_name(0))
+NVIDIA GeForce RTX 3080
+```
+
+## clone & install sd-scripts
+
+Before doing the following, `cd` to where you store all your git repos.
+
+```bash
+git clone https://github.com/kohya-ss/sd-scripts.git
+cd sd-scripts
+
+python -m venv venv
+.\venv\Scripts\activate
+
+pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
+pip install --upgrade -r requirements.txt
+pip install xformers==0.0.20
+
+accelerate config
+
+```
